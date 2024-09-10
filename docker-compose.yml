@@ -27,7 +27,6 @@ services:
       --datadir /data/taiko-geth
       --metrics
       --metrics.addr "0.0.0.0"
-      --bootnodes ${BOOT_NODES}
       --authrpc.addr "0.0.0.0"
       --authrpc.vhosts "*"
       --http
