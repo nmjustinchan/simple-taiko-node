@@ -66,7 +66,7 @@ services:
       - "/script/start-driver.sh"
     <<: *logging
     profiles:
-      - driver
+      - l2_execution_engine
       - prover
       - proposer
 
