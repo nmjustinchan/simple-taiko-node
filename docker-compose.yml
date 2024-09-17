@@ -14,6 +14,7 @@ services:
     stop_grace_period: 3m
     volumes:
       - l2_execution_engine_data:/data/taiko-geth
+      - ~/taiko-geth/genesis.json:/data/taiko-geth/genesis.json
     ports:
       - "${PORT_L2_EXECUTION_ENGINE_METRICS}:6060"
       - "${PORT_L2_EXECUTION_ENGINE_HTTP}:8545"
@@ -60,6 +61,7 @@ services:
     volumes:
       - l2_execution_engine_data:/data/taiko-geth
       - ./script:/script
+      - ~/taiko-geth/genesis.json:/data/taiko-geth/genesis.json
     entrypoint:
       - /bin/sh
       - -c
@@ -103,6 +105,7 @@ services:
     volumes:
       - l2_execution_engine_data:/data/taiko-geth
       - ./script:/script
+      - ~/taiko-geth/genesis.json:/data/taiko-geth/genesis.json
     entrypoint:
       - /bin/sh
       - -c
