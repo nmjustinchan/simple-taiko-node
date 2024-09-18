@@ -6,7 +6,7 @@ x-logging: &logging
 
 services:
   l2_execution_engine:
-    image: taiko-geth-neth:latest
+    image: taiko-geth:latest
     restart: unless-stopped
     # pull_policy: always
     env_file:
@@ -51,8 +51,8 @@ services:
       - proposer
 
   taiko_client_driver:
-    image: us-docker.pkg.dev/evmchain/images/taiko-client:taiko-client-v0.29.0
-    restart: unless-stopped
+    image: taiko-client:latest
+    # restart: unless-stopped
     pull_policy: always
     depends_on:
       - l2_execution_engine
@@ -73,8 +73,8 @@ services:
       - proposer
 
   taiko_client_prover_relayer:
-    image: us-docker.pkg.dev/evmchain/images/taiko-client:taiko-client-v0.29.0
-    restart: unless-stopped
+    image: taiko-client:latest
+    # restart: unless-stopped
     pull_policy: always
     depends_on:
       - l2_execution_engine
@@ -94,8 +94,8 @@ services:
       - prover
 
   taiko_client_proposer:
-    image: us-docker.pkg.dev/evmchain/images/taiko-client:taiko-client-v0.29.0
-    restart: unless-stopped
+    image: taiko-client:latest
+    # restart: unless-stopped
     pull_policy: always
     depends_on:
       - l2_execution_engine
