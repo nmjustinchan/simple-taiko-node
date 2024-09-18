@@ -52,8 +52,8 @@ services:
 
   taiko_client_driver:
     image: taiko-client:latest
-    # restart: unless-stopped
-    pull_policy: always
+    restart: unless-stopped
+    # pull_policy: always
     depends_on:
       - l2_execution_engine
     env_file:
@@ -74,8 +74,8 @@ services:
 
   taiko_client_prover_relayer:
     image: taiko-client:latest
-    # restart: unless-stopped
-    pull_policy: always
+    restart: unless-stopped
+    # pull_policy: always
     depends_on:
       - l2_execution_engine
       - taiko_client_driver
@@ -95,8 +95,8 @@ services:
 
   taiko_client_proposer:
     image: taiko-client:latest
-    # restart: unless-stopped
-    pull_policy: always
+    restart: unless-stopped
+    # pull_policy: always
     depends_on:
       - l2_execution_engine
       - taiko_client_driver
