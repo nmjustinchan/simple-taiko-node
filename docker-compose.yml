@@ -6,9 +6,9 @@ x-logging: &logging
 
 services:
   l2_execution_engine:
-    image: taiko-geth:latest
+    image: nethswitchboard/taiko-geth:e2e
     restart: unless-stopped
-    # pull_policy: always
+    pull_policy: always
     env_file:
       - .env
     stop_grace_period: 3m
@@ -51,9 +51,9 @@ services:
       - proposer
 
   taiko_client_driver:
-    image: taiko-client:latest
+    image: nethswitchboard/taiko-client:e2e
     restart: unless-stopped
-    # pull_policy: always
+    pull_policy: always
     depends_on:
       - l2_execution_engine
     env_file:
@@ -73,9 +73,9 @@ services:
       - proposer
 
   taiko_client_prover_relayer:
-    image: taiko-client:latest
+    image: nethswitchboard/taiko-client:e2e
     restart: unless-stopped
-    # pull_policy: always
+    pull_policy: always
     depends_on:
       - l2_execution_engine
       - taiko_client_driver
@@ -94,9 +94,9 @@ services:
       - prover
 
   taiko_client_proposer:
-    image: taiko-client:latest
+    image: nethswitchboard/taiko-client:e2e
     restart: unless-stopped
-    # pull_policy: always
+    pull_policy: always
     depends_on:
       - l2_execution_engine
       - taiko_client_driver
